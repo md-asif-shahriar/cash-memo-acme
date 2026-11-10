@@ -1,0 +1,154 @@
+/* PDF export — same as web, with grey tables/labels + full grid borders */
+
+body.exporting .no-print {
+  display: none !important;
+}
+
+/* Web already shows Total Amount bar; hide PDF-only table footer */
+body.exporting .pdf-only {
+  display: none !important;
+}
+
+body.exporting {
+  background: #fff !important;
+}
+
+body.exporting .app {
+  max-width: none;
+  padding: 0;
+}
+
+body.exporting .sheet {
+  box-shadow: none !important;
+  border: 1px solid #cfd8e3 !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  overflow: visible !important;
+  padding-bottom: 28px !important;
+}
+
+body.exporting .footer-note {
+  margin-top: 20px !important;
+  margin-bottom: 8px !important;
+  color: #000 !important;
+  display: block !important;
+}
+
+body.exporting input::placeholder {
+  color: transparent !important;
+  opacity: 0 !important;
+}
+
+body.exporting .products-head .icon-btn {
+  display: none !important;
+}
+
+body.exporting .shop-title,
+body.exporting .products-head h2 {
+  color: #000 !important;
+}
+
+body.exporting .shop-head {
+  border-bottom-color: #000 !important;
+}
+
+body.exporting .signatures {
+  margin-top: 36px !important;
+}
+
+body.exporting .payment select,
+body.exporting .payment-row .field select,
+body.exporting select.cell {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+body.exporting .payment-row {
+  background: #fff !important;
+}
+
+body.exporting .payment {
+  background: #fff !important;
+}
+
+/* ---- PDF only: product table → grey + full borders ---- */
+body.exporting .table-wrap {
+  overflow: visible !important;
+  border: 1px solid #b0b0b0 !important;
+  border-radius: 0 !important;
+}
+
+body.exporting .product-table {
+  min-width: 0 !important;
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+}
+
+body.exporting .product-table th,
+body.exporting .product-table td {
+  border: 1px solid #b0b0b0 !important;
+  background-clip: padding-box !important;
+}
+
+body.exporting .product-table th {
+  background: #d9d9d9 !important;
+  color: #000 !important;
+}
+
+body.exporting .product-table td {
+  background: #fff !important;
+}
+
+body.exporting .product-table tbody tr:nth-child(even) td {
+  background: #fff !important;
+}
+
+/* Total Amount bar was green on web → grey in PDF */
+body.exporting .total-line {
+  background: #d9d9d9 !important;
+  color: #000 !important;
+  border-radius: 0 !important;
+}
+
+body.exporting .total-line strong {
+  color: #000 !important;
+}
+
+/* Labels with non-white bg → same grey as table header */
+body.exporting .client .field > span,
+body.exporting .words-line > span,
+body.exporting .payment > span {
+  background: #d9d9d9 !important;
+  color: #000 !important;
+}
+
+/* Payment value side must stay white (not grey) */
+body.exporting .payment > span + *,
+body.exporting .payment select,
+body.exporting .payment .pdf-select-text {
+  background: #fff !important;
+  background-color: #fff !important;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .pdf-only {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .sheet {
+    box-shadow: none;
+  }
+}

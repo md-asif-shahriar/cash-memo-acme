@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Cash Memo — ACME Consumers Food Products" />
+  <title>ACME Consumers Food Products — Cash Memo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pdf.css" />
+</head>
+<body>
+  <div class="app">
+    <main class="sheet" id="memo">
+      <section class="shop-head">
+        <h1 class="shop-title" id="shop-title">ACME Consumers Food Products</h1>
+        <p class="memo-label">Cash Memo</p>
+      </section>
+
+      <section class="meta-row">
+        <label class="field">
+          <span>Memo No.</span>
+          <input type="text" id="memo-no" />
+        </label>
+        <label class="field">
+          <span>Date</span>
+          <input type="text" id="memo-date" placeholder="DD-MM-YYYY" maxlength="10" inputmode="numeric" autocomplete="off" />
+        </label>
+      </section>
+
+      <section class="client">
+        <label class="field">
+          <span>Client Name</span>
+          <input type="text" id="client-name" placeholder="Name" />
+        </label>
+        <label class="field">
+          <span>Address</span>
+          <input type="text" id="client-address" placeholder="Address" />
+        </label>
+        <label class="field full">
+          <span>Remarks</span>
+          <input type="text" id="remarks" placeholder="Optional" />
+        </label>
+      </section>
+
+      <section class="products">
+        <div class="products-head">
+          <h2>Products</h2>
+          <button type="button" class="icon-btn small primary no-print" id="btn-add" title="Add product" aria-label="Add product">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+        </div>
+
+        <div class="table-wrap">
+          <table class="product-table" aria-label="Product list">
+            <thead>
+              <tr>
+                <th class="col-sl">SL No.</th>
+                <th class="col-name">Item</th>
+                <th class="col-qty">Qty</th>
+                <th class="col-unit">Unit</th>
+                <th class="col-rate">Rate (Tk)</th>
+                <th class="col-amt">Amount (Tk)</th>
+                <th class="col-act no-print"></th>
+              </tr>
+            </thead>
+            <tbody id="product-body"></tbody>
+            <tfoot class="pdf-only">
+              <tr>
+                <td colspan="5" class="pdf-total-label">TOTAL AMOUNT</td>
+                <td class="pdf-total-value"><strong id="total-amount-pdf">0.00</strong></td>
+                <td class="col-act no-print"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+
+      <section class="totals">
+        <div class="total-line">
+          <span>Total Amount</span>
+          <strong id="total-amount">0.00</strong>
+        </div>
+        <div class="words-line">
+          <span>Amount in words</span>
+          <p id="amount-words">Zero Taka Only</p>
+        </div>
+
+        <div class="payment-row">
+          <label class="field payment">
+            <span>Payment Status</span>
+            <select id="payment-status">
+              <option value="fully-paid">Fully Paid</option>
+              <option value="due">Due</option>
+              <option value="partial">Partially Paid</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="signatures">
+        <div class="sign-box">
+          <div class="sign-space"></div>
+          <p>Authorized Signature</p>
+        </div>
+        <div class="sign-box">
+          <div class="sign-space"></div>
+          <p>Receiver's Signature</p>
+        </div>
+      </section>
+
+      <p class="footer-note">ধন্যবাদ · Thank you</p>
+    </main>
+
+    <div class="action-bar no-print">
+      <button type="button" class="text-btn" id="btn-reset">Reset</button>
+      <button type="button" class="text-btn primary" id="btn-pdf">Download PDF</button>
+    </div>
+  </div>
+
+  <div class="modal-overlay no-print" id="reset-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="reset-modal-title">
+      <p id="reset-modal-title">Reset all fields?</p>
+      <p class="modal-sub">This cannot be undone.</p>
+      <div class="modal-actions">
+        <button type="button" class="text-btn" id="reset-cancel">Cancel</button>
+        <button type="button" class="text-btn primary" id="reset-confirm">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pdf.js"></script>
+</body>
+</html>
