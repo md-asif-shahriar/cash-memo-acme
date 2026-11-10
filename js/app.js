@@ -10,8 +10,14 @@
   const memoDate = document.getElementById("memo-date");
   const paymentStatus = document.getElementById("payment-status");
   const resetModal = document.getElementById("reset-modal");
+  const btnPdf = document.getElementById("btn-pdf");
 
   let currentTotal = 0;
+
+  function updatePdfButton() {
+    if (!btnPdf) return;
+    btnPdf.disabled = currentTotal <= 0;
+  }
 
   function todayDMY() {
     const d = new Date();
@@ -152,6 +158,7 @@
     totalEl.textContent = money;
     if (totalPdfEl) totalPdfEl.textContent = money;
     wordsEl.textContent = amountInWords(currentTotal);
+    updatePdfButton();
   }
 
   function addRow(data) {
