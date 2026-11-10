@@ -544,10 +544,10 @@ button {
   background: var(--accent-dark);
 }
 
-.text-btn:disabled {
+.text-btn:disabled,
+.text-btn[disabled] {
   opacity: 0.5;
   cursor: not-allowed;
-  pointer-events: none;
 }
 
 .modal-overlay {

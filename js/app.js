@@ -15,8 +15,12 @@
   let currentTotal = 0;
 
   function updatePdfButton() {
-    if (!btnPdf) return;
-    btnPdf.disabled = currentTotal <= 0;
+    const btn = document.getElementById("btn-pdf");
+    if (!btn) return;
+    const canDownload = currentTotal > 0;
+    btn.disabled = !canDownload;
+    if (canDownload) btn.removeAttribute("disabled");
+    else btn.setAttribute("disabled", "disabled");
   }
 
   function todayDMY() {
