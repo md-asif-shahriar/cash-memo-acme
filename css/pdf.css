@@ -196,6 +196,7 @@ body.exporting .client {
 
 body.exporting .client .field,
 body.exporting .client .field.full {
+  grid-template-columns: 150px 1fr !important;
   border-bottom: 1.5px solid #666 !important;
 }
 
@@ -205,6 +206,8 @@ body.exporting .client .field:last-child {
 
 body.exporting .client .field > span {
   border-right: 1.5px solid #666 !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
 }
 
 /* Payment value side must stay white (not grey) */
