@@ -98,11 +98,7 @@
       alert("Could not create the PDF. Please try again.");
     } finally {
       document.body.classList.remove("exporting");
-      const totalText = (document.getElementById("total-amount") || {}).textContent || "0";
-      const totalNum = Number(String(totalText).replace(/,/g, "")) || 0;
-      btn.disabled = totalNum <= 0;
-      if (totalNum > 0) btn.removeAttribute("disabled");
-      else btn.setAttribute("disabled", "disabled");
+      btn.disabled = false;
     }
   }
 
