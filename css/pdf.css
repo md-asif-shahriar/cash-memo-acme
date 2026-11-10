@@ -25,6 +25,44 @@ body.exporting .sheet {
   background: #fff !important;
   overflow: visible !important;
   padding-bottom: 28px !important;
+  font-size: 16px !important;
+}
+
+body.exporting .shop-title {
+  font-size: 26px !important;
+}
+
+body.exporting .memo-label {
+  font-size: 14px !important;
+}
+
+body.exporting .products-head h2 {
+  font-size: 17px !important;
+}
+
+body.exporting .meta-row .field > span,
+body.exporting .client .field > span,
+body.exporting .words-line > span,
+body.exporting .payment > span {
+  font-size: 15px !important;
+}
+
+body.exporting .meta-row .field input,
+body.exporting .client .field input,
+body.exporting .words-line p,
+body.exporting .payment select,
+body.exporting .payment .pdf-select-text,
+body.exporting .sign-box p,
+body.exporting .footer-note,
+body.exporting .total-line,
+body.exporting .cell,
+body.exporting .sl-num,
+body.exporting .amt-cell {
+  font-size: 15px !important;
+}
+
+body.exporting .total-line strong {
+  font-size: 17px !important;
 }
 
 body.exporting .footer-note {
@@ -78,7 +116,7 @@ body.exporting .payment {
 /* ---- PDF only: product table → grey + full borders ---- */
 body.exporting .table-wrap {
   overflow: visible !important;
-  border: 1px solid #b0b0b0 !important;
+  border: 1px solid #888 !important;
   border-radius: 0 !important;
 }
 
@@ -87,17 +125,20 @@ body.exporting .product-table {
   width: 100% !important;
   border-collapse: collapse !important;
   border-spacing: 0 !important;
+  font-size: 15px !important;
 }
 
 body.exporting .product-table th,
 body.exporting .product-table td {
-  border: 1px solid #b0b0b0 !important;
+  border: 1px solid #888 !important;
   background-clip: padding-box !important;
+  padding: 10px 8px !important;
 }
 
 body.exporting .product-table th {
   background: #d9d9d9 !important;
   color: #000 !important;
+  font-size: 14px !important;
 }
 
 body.exporting .product-table td {
@@ -106,6 +147,27 @@ body.exporting .product-table td {
 
 body.exporting .product-table tbody tr:nth-child(even) td {
   background: #fff !important;
+}
+
+/* Qty / Unit / Rate / Amount / SL — center like web numbers */
+body.exporting .product-table td.col-sl,
+body.exporting .product-table td.col-qty,
+body.exporting .product-table td.col-unit,
+body.exporting .product-table td.col-rate,
+body.exporting .product-table td.col-amt {
+  text-align: center !important;
+}
+
+body.exporting .product-table td.col-unit .pdf-select-text,
+body.exporting .product-table td.col-unit .cell,
+body.exporting .product-table .cell.center,
+body.exporting .product-table .pdf-select-text.center {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin: 0 auto !important;
 }
 
 /* Total Amount bar was green on web → grey in PDF */
@@ -125,6 +187,24 @@ body.exporting .words-line > span,
 body.exporting .payment > span {
   background: #d9d9d9 !important;
   color: #000 !important;
+}
+
+/* Client dividers a bit darker/heavier */
+body.exporting .client {
+  border: 1.5px solid #666 !important;
+}
+
+body.exporting .client .field,
+body.exporting .client .field.full {
+  border-bottom: 1.5px solid #666 !important;
+}
+
+body.exporting .client .field:last-child {
+  border-bottom: none !important;
+}
+
+body.exporting .client .field > span {
+  border-right: 1.5px solid #666 !important;
 }
 
 /* Payment value side must stay white (not grey) */

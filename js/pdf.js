@@ -36,7 +36,7 @@
       filename: `ACME-Cash-Memo_${no}.pdf`,
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: {
-        scale: 2,
+        scale: 2.5,
         useCORS: true,
         scrollY: 0,
         backgroundColor: "#ffffff",
@@ -55,12 +55,14 @@
               : sel.value;
             const span = doc.createElement("span");
             span.textContent = text;
-            span.className = "pdf-select-text";
+            const isCenter = sel.classList.contains("center");
+            span.className = "pdf-select-text" + (isCenter ? " center" : "");
             const cs = doc.defaultView.getComputedStyle(sel);
             const isPayment = !!sel.closest(".payment");
             span.style.cssText = [
               "display:flex",
               "align-items:center",
+              "justify-content:" + (isCenter ? "center" : "flex-start"),
               "width:100%",
               "box-sizing:border-box",
               "min-height:" + cs.minHeight,
@@ -70,12 +72,16 @@
               "background:#ffffff",
               "background-color:#ffffff",
               "color:#000000",
-              "font:" + cs.font,
-              "text-align:" + (sel.classList.contains("center") ? "center" : "left"),
+              "font-size:15px",
+              "font-family:" + cs.fontFamily,
+              "font-weight:" + cs.fontWeight,
+              "text-align:" + (isCenter ? "center" : "left"),
             ].join(";");
             if (isPayment) {
               span.style.padding = "8px 12px";
               span.style.minHeight = "42px";
+              span.style.justifyContent = "flex-start";
+              span.style.textAlign = "left";
             }
             sel.parentNode.replaceChild(span, sel);
           });
